@@ -9,5 +9,5 @@ const server = http.createServer((req, res) => {
 });
 
 //run command node server.js will print this out in terminal
-server.listen(8000, () => console.log("Server running on port 8000!"));
+server.listen(PORT, () => console.log("Server running on port 8000!"));
 
