@@ -7,6 +7,7 @@ const { PORT } = require("./config");
 //set up http server using node.js
 const server = http.createServer((req, res) => {
   fs.readFile("./public/index.html", (err, data) => {
+    //set the header content type to be text/html b/c we are serving index.html
     res.setHeader('Content-Type', 'text/html');
     if (err) {
       res.writeHead(500);
@@ -14,13 +15,9 @@ const server = http.createServer((req, res) => {
     }
     //sends an http status code
     res.writeHead(200);
+    //response headers and body are sent. Server closes connection
     res.end(data);
   });
-
-  //when request is made, server responds with "hello world"
-  res.write("Hello World");
-  //response headers and body are sent. Server closes connection
-
 });
 
 //run command node server.js will print this out in terminal
